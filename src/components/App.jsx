@@ -25,10 +25,10 @@ const App = () => {
     }
   };
 
-  const countTotalFeedback = () => good + neutral + bad;
+  const countTotalFeedback = good + neutral + bad;
 
-  const countPositiveFeedbackPercentage = () =>
-    countTotalFeedback() && Math.round((good / countTotalFeedback()) * 100);
+  const countPositiveFeedbackPercentage =
+    countTotalFeedback && Math.round((good / countTotalFeedback) * 100);
 
   return (
     <Container>
@@ -39,7 +39,7 @@ const App = () => {
         />
       </Section>
       <Section title="Statistics">
-        {!countTotalFeedback() ? (
+        {!countTotalFeedback ? (
           <Notification message="There is no feedback"></Notification>
         ) : (
           <Statistics
